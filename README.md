@@ -65,17 +65,27 @@ Real-time Events → Socket.IO
 
 ## 📁 Project Structure
 
+```text
 realtime-chat-app/
 ├── frontend/
-│   └── src/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── ...
+│
 ├── backend/
 │   ├── config/
 │   ├── controllers/
 │   ├── middlewares/
 │   ├── models/
 │   ├── routes/
-│   └── socket/
-└── ...
+│   ├── socket/
+│   ├── index.js
+│   ├── package.json
+│   └── ...
+│
+├── .gitignore
+└── README.md
 
 ## ⚙️ Environment Variables
 
