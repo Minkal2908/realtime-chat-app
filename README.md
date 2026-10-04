@@ -86,6 +86,7 @@ realtime-chat-app/
 │
 ├── .gitignore
 └── README.md
+```
 
 ## ⚙️ Environment Variables
 
