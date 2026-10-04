@@ -8,6 +8,7 @@ const server=http.createServer(app)
 const io=new Server(server,{
     cors:{
         origin:"https://realtime-chat-app-frontend-h67t.onrender.com"
+        credentials: true
     }
 })
  const userSocketMap ={}
