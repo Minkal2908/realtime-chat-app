@@ -18,29 +18,31 @@ function App() {
   let dispatch=useDispatch()
 
   useEffect(()=>{
-    if(userData){
-      const socketio=io(`${serverUrl}`,{
-        query:{
-          userId:userData?._id
-        }
-        })
-        dispatch(setSocket(socketio))
-        
-        socketio.on("getOnlineUsers",(users)=>{
-          dispatch(setOnlineUsers(users))
-        })
-        
-        return ()=>socketio.close()
-        
-    }else{
-      if(socket){
-        socket.close()
-        dispatch(setSocket(null))
-      }
+  if(userData){
+    const socketio=io(`${serverUrl}`,{
+      query:{
+        userId:userData?._id
+      },
+      autoConnect:false
+    })
+
+    socketio.on("getOnlineUsers",(users)=>{
+      dispatch(setOnlineUsers(users))
+    })
+
+    dispatch(setSocket(socketio))
+
+    socketio.connect()
+
+    return ()=>socketio.close()
+    
+  }else{
+    if(socket){
+      socket.close()
+      dispatch(setSocket(null))
     }
-
-
-  },[userData])
+  }
+},[userData])
 
   return (
     <Routes>
